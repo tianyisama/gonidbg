@@ -6,7 +6,9 @@
 [![Go Reference](https://pkg.go.dev/badge/github.com/sisi0318/gonidbg.svg)](https://pkg.go.dev/github.com/sisi0318/gonidbg)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 
-gonidbg 是 [unidbg](https://github.com/zhkl0228/unidbg) 的一个 Go 精简实现:在本机加载一个 Android AArch64 native 库(`.so`),不借助 JVM、真机或 Android 系统就能直接调用里面的函数。它给这个 `.so` 搭出一套够用的 Android 进程环境(动态链接器、真实的 bionic libc、一部分 Linux 系统调用、JNI/JavaVM),你就能从 Go 里调它的导出函数、读写它的内存。
+gonidbg 是 [unidbg](https://github.com/zhkl0228/unidbg) 的 Go 语言精简实现。它允许在本地环境中直接加载 Android AArch64 原生库（`.so`），无需依赖 JVM、真机或完整的 Android 系统即可调用库中的函数。
+
+gonidbg 基于目标 `.so` 构建一套可用的 Android 进程环境，涵盖动态链接器、真实的 bionic libc、部分 Linux 系统调用以及 JNI/JavaVM 支持。开发者可直接在 Go 代码中调用其导出函数，并对其内存进行读写操作。
 
 和 unidbg 一样,CPU 引擎可以替换:[Unicorn](https://www.unicorn-engine.org/) 解释器,或静态链接的 [dynarmic](https://github.com/lioncash/dynarmic) JIT。编译时决定打包哪个,运行时决定用哪个。
 
